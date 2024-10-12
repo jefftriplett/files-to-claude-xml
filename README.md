@@ -13,6 +13,8 @@ $ uv run files-to-claude-xml.py \
     filename3.py
 ```
 
+Now create a new Claude Project and drag and drop the generated `_claude.xml` file into your "Project knowledge" section.
+
 ## Author
 
 👤 **Jeff Triplett**
