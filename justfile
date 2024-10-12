@@ -16,3 +16,6 @@
 
 @lint:
     uv run --with pre-commit-uv pre-commit run --all-files
+
+@publish:
+    uv publish
