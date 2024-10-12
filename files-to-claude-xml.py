@@ -5,12 +5,11 @@
 #     "typer",
 # ]
 # ///
-from __future__ import annotations
 
 from pathlib import Path
-from rich import print
 
 import typer
+from rich import print
 
 
 def compile_xml(*, files: list[Path], verbose: bool = False) -> str:
