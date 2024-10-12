@@ -1,9 +1,8 @@
 <h1 align="center">Welcome to files-to-claude-xml 👋</h1>
 
-> Django startproject template with batteries
+> Use XML tags for long context prompting using Claude's multi-document structure.
 
-
-### 🏠 [Homepage](https://github.com/jefftriplett/files-to-claude-xml)
+See notes and examples here: https://docs.anthropic.com/en/docs/build-with-claude/prompt-engineering/long-context-tips
 
 ## :rocket: Usage
 
