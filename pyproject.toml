@@ -13,9 +13,7 @@ authors = [
 ]
 license = {file = "LICENSE"}
 
-
 [tool.ruff]
-
 # Exclude a variety of commonly ignored directories.
 exclude = [
     ".bzr",
