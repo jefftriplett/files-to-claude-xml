@@ -19,6 +19,9 @@
 @lint:
     uv run --with pre-commit-uv pre-commit run --all-files
 
+@lock:
+    uv lock
+
 @publish:
     uv publish
 
