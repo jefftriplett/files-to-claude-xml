@@ -7,7 +7,7 @@ See notes and examples here: https://docs.anthropic.com/en/docs/build-with-claud
 ## :rocket: Usage
 
 ```shell
-$ uv run files-to-claude-xml \
+$ uv run files-to-claude-xml.py \
     filename1.py \
     filename2.py \
     filename3.py
