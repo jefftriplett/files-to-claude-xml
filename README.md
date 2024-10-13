@@ -4,6 +4,10 @@
 
 See notes and examples here: https://docs.anthropic.com/en/docs/build-with-claude/prompt-engineering/long-context-tips
 
+## Write up
+
+:memo: See my blog post, [I released files-to-claude-xml and new development workflows](https://micro.webology.dev/2024/10/12/i-released-filestoclaudexml.html) for more details. 
+
 ## :rocket: Usage
 
 ```shell
