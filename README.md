@@ -6,7 +6,7 @@ See notes and examples here: https://docs.anthropic.com/en/docs/build-with-claud
 
 ## Write up
 
-:memo: See my blog post, [I released files-to-claude-xml and new development workflows](https://micro.webology.dev/2024/10/12/i-released-filestoclaudexml.html) for more details. 
+:memo: See my blog post, [I released files-to-claude-xml and new development workflows](https://micro.webology.dev/2024/10/12/i-released-filestoclaudexml.html) for more details.
 
 ## :rocket: Usage
 
