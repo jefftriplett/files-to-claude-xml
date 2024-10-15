@@ -13,6 +13,15 @@ authors = [
 ]
 license = {file = "LICENSE"}
 
+[project.urls]
+Changelog = "https://github.com/jefftriplett/files-to-claude-xml/releases"
+CI = "https://github.com/jefftriplett/files-to-claude-xml/actions"
+Homepage = "https://github.com/jefftriplett/files-to-claude-xml"
+Issues = "https://github.com/jefftriplett/files-to-claude-xml/issues"
+
+[project.entry-points.console_scripts]
+files-to-claude-xml = "files_to_claude_xml:app"
+
 [tool.bumpver]
 commit = true
 commit_message = ":bookmark: bump version {old_version} -> {new_version}"
