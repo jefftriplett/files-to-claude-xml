@@ -12,7 +12,7 @@ from typing import Annotated
 import typer
 from rich import print
 
-__version__ = "2024.10.2"
+__version__ = "2024.10.3"
 
 
 app = typer.Typer()
