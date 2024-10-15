@@ -4,6 +4,12 @@ version = "2024.10.1"
 description = "Use XML tags for long context prompting using Claude's multi-document structure."
 readme = "README.md"
 requires-python = ">=3.11"
+classifiers = [
+    "Development Status :: 3 - Alpha",
+    "Programming Language :: Python :: 3.11",
+    "Programming Language :: Python :: 3.12",
+    "Programming Language :: Python :: 3.13",
+]
 dependencies = [
     "rich",
     "typer",
@@ -11,7 +17,7 @@ dependencies = [
 authors = [
     {name = "Jeff Triplett"}
 ]
-license = {file = "LICENSE"}
+license = {text = "PolyForm-Noncommercial-1.0.0 "}
 
 [project.urls]
 Changelog = "https://github.com/jefftriplett/files-to-claude-xml/releases"
