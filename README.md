@@ -11,7 +11,17 @@ See notes and examples here: https://docs.anthropic.com/en/docs/build-with-claud
 ## :rocket: Usage
 
 ```shell
-$ uv run files-to-claude-xml.py \
+# to install:
+$ uv pip install files-to-claude-xml
+
+# to run
+$ files-to-claude-xml \
+    filename1.py \
+    filename2.py \
+    filename3.py
+
+# to run via uv tool (with or without installing):
+$ uv tool run files-to-claude-xml \
     filename1.py \
     filename2.py \
     filename3.py
