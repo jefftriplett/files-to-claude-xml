@@ -11,6 +11,8 @@ from pathlib import Path
 import typer
 from rich import print
 
+__version__ = "2024.10.1"
+
 
 def compile_xml(*, files: list[Path], verbose: bool = False) -> str:
     xml_parts = ["<documents>"]

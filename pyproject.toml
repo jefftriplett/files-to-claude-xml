@@ -1,6 +1,6 @@
 [project]
 name = "files-to-claude-xml"
-version = "0.1.0"
+version = "2024.10.1"
 description = "Use XML tags for long context prompting using Claude's multi-document structure."
 readme = "README.md"
 requires-python = ">=3.11"
@@ -12,6 +12,22 @@ authors = [
     {name = "Jeff Triplett"}
 ]
 license = {file = "LICENSE"}
+
+[tool.bumpver]
+commit = true
+commit_message = ":bookmark: bump version {old_version} -> {new_version}"
+current_version = "2024.10.1"
+push = false  # disabled for GitHub Actions
+tag = true
+version_pattern = "YYYY.MM.INC1"
+
+[tool.bumpver.file_patterns]
+"files-to-claude-xml.py" = [
+    '__version__ = "{version}"',
+]
+"pyproject.toml" = [
+  'version = "{version}"'
+]
 
 [tool.ruff]
 # Exclude a variety of commonly ignored directories.
