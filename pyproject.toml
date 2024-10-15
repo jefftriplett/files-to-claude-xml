@@ -37,7 +37,7 @@ tag = true
 version_pattern = "YYYY.MM.INC1"
 
 [tool.bumpver.file_patterns]
-"files-to-claude-xml.py" = [
+"files_to_claude_xml.py" = [
     '__version__ = "{version}"',
 ]
 "pyproject.toml" = [
