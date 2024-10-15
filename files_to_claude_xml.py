@@ -7,11 +7,15 @@
 # ///
 
 from pathlib import Path
+from typing import Annotated
 
 import typer
 from rich import print
 
 __version__ = "2024.10.1"
+
+
+app = typer.Typer()
 
 
 def compile_xml(*, files: list[Path], verbose: bool = False) -> str:
@@ -38,10 +42,20 @@ def compile_xml(*, files: list[Path], verbose: bool = False) -> str:
     return "\n".join(xml_parts)
 
 
+def version_callback(value: bool):
+    if value:
+        print(f"files-to-claude-xml version: {__version__}")
+        raise typer.Exit()
+
+
+@app.command()
 def main(
     files: list[Path] = typer.Argument(..., help="Input files to process"),
     output: Path = typer.Option(Path("_claude.xml"), help="Output XML file path"),
     verbose: bool = False,
+    version: Annotated[
+        bool | None, typer.Option("--version", callback=version_callback)
+    ] = None,
 ):
     if not files:
         print("No input files provided. Please specify at least one file.")
@@ -56,4 +70,4 @@ def main(
 
 
 if __name__ == "__main__":
-    typer.run(main)
+    app()
