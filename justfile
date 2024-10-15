@@ -8,6 +8,9 @@
 @build:
     uv build
 
+@bump *ARGS:
+    uv tool run bumpver update --allow-dirty {{ ARGS }}
+
 @demo:
     uv run files-to-claude-xml.py \
         files-to-claude-xml.py \
