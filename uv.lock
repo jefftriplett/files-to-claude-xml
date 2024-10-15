@@ -24,7 +24,7 @@ wheels = [
 
 [[package]]
 name = "files-to-claude-xml"
-version = "2024.10.1"
+version = "2024.10.2"
 source = { virtual = "." }
 dependencies = [
     { name = "rich" },
