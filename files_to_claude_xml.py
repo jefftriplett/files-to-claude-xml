@@ -3,6 +3,7 @@
 # dependencies = [
 #     "rich",
 #     "typer",
+#     "python-docx",
 # ]
 # ///
 
@@ -11,7 +12,14 @@ from typing import Annotated
 
 import typer
 from rich import print
+from docx import Document
 
+def is_docx(file_path: Path) -> bool:
+    return file_path.suffix.lower() == '.docx'
+
+def read_docx_content(file_path: Path) -> str:
+    doc = Document(file_path)
+    return '\n'.join([paragraph.text for paragraph in doc.paragraphs])
 __version__ = "2024.10.4"
 
 
@@ -26,7 +34,10 @@ def compile_xml(*, files: list[Path], verbose: bool = False) -> str:
             print(file.as_posix())
 
         try:
-            content = file.read_text()
+            if is_docx(file):
+                content = read_docx_content(file)
+            else:
+                content = file.read_text()
             xml_parts.append(f'<document index="{index}">')
             xml_parts.append(f"<source>{file.as_posix()}</source>")
             xml_parts.append("<document_content>")
