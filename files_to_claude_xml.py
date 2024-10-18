@@ -4,20 +4,18 @@
 #     "rich",
 #     "typer",
 #     "python-docx",
+#     "pdfminer.six",
 # ]
 # ///
 
 from pathlib import Path
-from typing import Annotated
 
 import typer
 from rich import print
-from docx import Document
 
-def is_docx(file_path: Path) -> bool:
-    return file_path.suffix.lower() == '.docx'
 
 def read_docx_content(file_path: Path) -> str:
+    from docx import Document
     doc = Document(file_path)
     return '\n'.join([paragraph.text for paragraph in doc.paragraphs])
 __version__ = "2024.10.4"
@@ -26,25 +24,52 @@ __version__ = "2024.10.4"
 app = typer.Typer()
 
 
+
+def read_text_file(file_path: Path) -> str:
+    return file_path.read_text()
+
+
+def read_pdf_content(file_path: Path) -> str:
+    from io import StringIO
+    from pdfminer.high_level import extract_text_to_fp
+    from pdfminer.layout import LAParams
+
+    output_string = StringIO()
+    with open(file_path, 'rb') as fin:
+        extract_text_to_fp(fin, output_string, laparams=LAParams())
+    return output_string.getvalue().strip()
+
+
+def read_file_content(file_path: Path) -> str:
+    try:
+        match file_path.suffix.lower():
+            case '.docx':
+                return read_docx_content(file_path)
+            case '.pdf':
+                return read_pdf_content(file_path)
+            case _:
+                return read_text_file(file_path)
+    except Exception as e:
+        raise ValueError(f"Error reading file {file_path}: {str(e)}")
+
+
 def compile_xml(*, files: list[Path], verbose: bool = False) -> str:
     xml_parts = ["<documents>"]
 
     for index, file in enumerate(files, start=1):
         if verbose:
-            print(file.as_posix())
+            print(f"Processing: {file.as_posix()}")
 
         try:
-            if is_docx(file):
-                content = read_docx_content(file)
-            else:
-                content = file.read_text()
+            content = read_file_content(file)
             xml_parts.append(f'<document index="{index}">')
             xml_parts.append(f"<source>{file.as_posix()}</source>")
             xml_parts.append("<document_content>")
             xml_parts.append(content)
             xml_parts.append("</document_content>")
             xml_parts.append("</document>")
-
+            if verbose:
+                print(f"Successfully processed: {file.as_posix()}")
         except Exception as e:
             print(f"[red]Error reading file: {str(e)}[/red]")
 
