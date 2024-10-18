@@ -44,6 +44,9 @@ version_pattern = "YYYY.MM.INC1"
 "pyproject.toml" = [
   'version = "{version}"'
 ]
+"uv.lock" = [
+  'version = "{version}"'
+]
 
 [tool.ruff]
 # Exclude a variety of commonly ignored directories.
