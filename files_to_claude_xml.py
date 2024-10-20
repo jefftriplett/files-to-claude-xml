@@ -7,7 +7,7 @@
 #     "pdfminer.six",
 # ]
 # ///
-
+import mimetypes
 from pathlib import Path
 
 import typer
@@ -42,15 +42,19 @@ def read_pdf_content(file_path: Path) -> str:
 
 def read_file_content(file_path: Path) -> str:
     try:
-        match file_path.suffix.lower():
-            case '.docx':
+        mime_type, _ = mimetypes.guess_type(file_path)
+        match mime_type:
+            case 'application/vnd.openxmlformats-officedocument.wordprocessingml.document':
                 return read_docx_content(file_path)
-            case '.pdf':
+            case 'application/pdf':
                 return read_pdf_content(file_path)
+            case 'text/plain':
+                return read_text_file(file_path)
             case _:
                 return read_text_file(file_path)
     except Exception as e:
         raise ValueError(f"Error reading file {file_path}: {str(e)}")
+
 
 
 def compile_xml(*, files: list[Path], verbose: bool = False) -> str:
