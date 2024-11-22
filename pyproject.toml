@@ -18,7 +18,6 @@ authors = [
     {name = "Jeff Triplett"}
 ]
 license = "PolyForm-Noncommercial-1.0.0"
-license-files = ["LICENSE"]
 
 [project.urls]
 Homepage = "https://github.com/jefftriplett/files-to-claude-xml"
