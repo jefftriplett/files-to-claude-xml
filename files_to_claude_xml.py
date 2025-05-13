@@ -20,8 +20,9 @@ app = typer.Typer()
 
 def compile_xml(*, files: list[Path], verbose: bool = False) -> str:
     xml_parts = ["<documents>"]
+    index = 1
 
-    for index, file in enumerate(files, start=1):
+    for file in files:
         if verbose:
             print(file.as_posix())
 
@@ -33,6 +34,7 @@ def compile_xml(*, files: list[Path], verbose: bool = False) -> str:
             xml_parts.append(content)
             xml_parts.append("</document_content>")
             xml_parts.append("</document>")
+            index += 1
 
         except Exception as e:
             print(f"[red]Error reading file: {str(e)}[/red]")
